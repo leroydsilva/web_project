@@ -17,7 +17,8 @@ firebaseConfig = {
 }  
 firebase = pyrebase.initialize_app(firebaseConfig)
 authe=firebase.auth()
-storage=firebase.database()
+database=firebase.database()
+storage = firebase.storage()
 
 def login(request):
     return render(request,'login.html')
@@ -29,7 +30,9 @@ def postLogin(request):
     name1=name[0]
     try:
         user=authe.sign_in_with_email_and_password(email,passw)
+        print(user)
         s_id=user['idToken']
+        # uname=user['idToken']
         request.session['uid']=str(s_id)
     except:
         # messages.error(request, f"Invalid username or password")
@@ -49,7 +52,7 @@ def Signup(request):
             user1=authe.create_user_with_email_and_password(email,passw)
             uid=user1['localId']
             data={'name':username, 'status':'1'}
-            storage.child("users").child(uid).child('detailsa').set(data)
+            database.child("users").child(uid).child('detailsa').set(data)
             
 
         except:
@@ -65,8 +68,21 @@ def logout(request):
     auth.logout(request)
     return render(request,'login.html')
     
-def index(request):
-    return render(request,'home.html')
+def study(request):
+    idtoken=request.session['uid']
+    a=authe.get_account_info(idtoken)
+    a=a['users']
+    a=a[0]
+    # print(a)
+    a=a['localId']
+    url_list=[]
+    for i in range(1,5):
+        url=storage.child("Java/{}.pdf".format(i)).get_url(a)
+        url_list.append(url)
+    print(url_list) 
+    uname=storage.child("Java/2.pdf").get_name(a)
+    print(uname)       
+    return render(request,'blog.html',{'u':url_list})
 
-def test(request):
-    return render(request,'test.html')    
+def career(request):
+    return render(request,'course.html')    

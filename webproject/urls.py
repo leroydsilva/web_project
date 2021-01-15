@@ -24,6 +24,7 @@ admin.site.index_title="hayy ice creams"
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('',include('home.urls'))
+    path('',include('home.urls')),
+    path('homes',include('home1.urls'))
     
 ]

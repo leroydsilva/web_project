@@ -1,4 +1,4 @@
-from django.shortcuts import render,HttpResponse
+from django.shortcuts import render,redirect,HttpResponse
 import pyrebase
 from django.contrib import auth
 from django.contrib import  messages
@@ -20,25 +20,29 @@ authe=firebase.auth()
 database=firebase.database()
 storage = firebase.storage()
 
-def login(request):
-    return render(request,'login.html')
+def home(request):
+    return render(request,'home.html')
 
 def postLogin(request):
-    email=request.POST.get('email')
-    passw=request.POST.get('password')
-    name=email.split('@')
-    name1=name[0]
-    try:
-        user=authe.sign_in_with_email_and_password(email,passw)
-        print(user)
-        s_id=user['idToken']
-        # uname=user['idToken']
-        request.session['uid']=str(s_id)
-    except:
-        # messages.error(request, f"Invalid username or password")
-        message="invalid credentials"
-        return render(request,'login.html',{'m':message})    
-    return render(request,'home.html',{"e":name1})
+    if request.method=='POST':
+        email=request.POST.get('email')
+        passw=request.POST.get('password')
+        name=email.split('@')
+        name1=name[0]
+        try:
+            user=authe.sign_in_with_email_and_password(email,passw)
+            print(user)
+            s_id=user['idToken']
+            # uname=user['idToken']
+            request.session['uid']=str(s_id)
+            return redirect('home:home')
+
+
+        except:
+            # messages.error(request, f"Invalid username or password")
+            message="invalid credentials"
+            return render(request,'login.html',{'m':message})    
+    return render(request,'login.html')
 
 def register(request):
     return render(request,'register.html')
@@ -65,7 +69,10 @@ def Signup(request):
     return render(request,'login.html')
 
 def logout(request):
-    auth.logout(request)
+    try:
+        del request.session['uid']
+    except KeyError:
+        pass    
     return render(request,'login.html')
     
 def study(request):

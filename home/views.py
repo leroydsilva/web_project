@@ -45,28 +45,30 @@ def postLogin(request):
     return render(request,'login.html')
 
 def register(request):
-    return render(request,'register.html')
-def Signup(request):
-    email=request.POST.get('email')
-    username=request.POST.get('username')
-    passw=request.POST.get('password')
-    passw2=request.POST.get('password2')
-    if passw==passw2:
-        try:
-            user1=authe.create_user_with_email_and_password(email,passw)
-            uid=user1['localId']
-            data={'name':username, 'status':'1'}
-            database.child("users").child(uid).child('detailsa').set(data)
+    if request.method == 'POST':
+        email=request.POST.get('email')
+        username=request.POST.get('username')
+        passw=request.POST.get('password')
+        passw2=request.POST.get('password2')
+        if passw==passw2:
+            try:
+                user1=authe.create_user_with_email_and_password(email,passw)
+                uid=user1['localId']
+                data={'name':username, 'status':'1'}
+                database.child("users").child(uid).child('detailsa').set(data)
             
 
-        except:
-            message="unable to create account try again"
-            return render(request,'register.html',{'m':message})
-    else:
-        message3="Passwords donot Match"
-        return render(request,'register.html',{'m':message3})  
+            except:
+                message="unable to create account try again"
+                return render(request,'register.html',{'m':message})
+        else:
+            message3="Passwords donot Match"
+            return render(request,'register.html',{'m':message3})  
     # message1='successffull'          
-    return render(request,'login.html')
+    return render(request,'register.html')
+
+    
+
 
 def logout(request):
     try:
@@ -87,9 +89,12 @@ def study(request):
         url=storage.child("Java/{}.pdf".format(i)).get_url(a)
         url_list.append(url)
     print(url_list) 
-    uname=storage.child("Java/2.pdf").get_name(a)
-    print(uname)       
+    
+          
     return render(request,'blog.html',{'u':url_list})
 
-def career(request):
+def course(request):
     return render(request,'course.html')    
+
+def contact(request):
+    return render(request,'contact.html')    

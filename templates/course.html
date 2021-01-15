@@ -14,99 +14,204 @@
    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     
-    
     <style>
-        #background {
-            width: 100%;
-            height: auto;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-            background: black;
-            background-size: cover;
-            background-repeat: no-repeat;
-            background-attachment: fixed;
-            background-position: center;
-            border-style: none;
+        #headingBg {
+          width: 100%;
+          height: auto;
+          text-align: center;
+          position: relative;
+          overflow: hidden;
+          background: url(https://images.pexels.com/photos/716276/pexels-photo-716276.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940);
+          background-size: cover;
+          background-repeat: no-repeat;
+          background-attachment: fixed;
+          background-position: center;
+          border-style: none;
         }
-
-        #background:before {
-            content: '';
-            position: absolute;
-            top: 100%;
-            left: -50%;
-            width: 100%;
-            height: 20%;
-            background: white;
-            transform-origin: right;
-            transform: skewY(8deg);
-            border-style: none;
+      
+        #headingBg:before {
+          content: '';
+          position: absolute;
+          top: 100%;
+          left: -50%;
+          width: 100%;
+          height: 22%;
+          background: white;
+          transform-origin: right;
+          transform: skewY(8deg);
+          border-style: none;
         }
-
-        #background:after {
-            content: '';
-            position: absolute;
-            top: 100%;
-            right: -50%;
-            width: 100%;
-            height: 20%;
-            background: white;
-            transform-origin: left;
-            transform: skewY(-8deg);
-            border-style: none;
+      
+        #headingBg:after {
+          content: '';
+          position: absolute;
+          top: 100%;
+          right: -50%;
+          width: 100%;
+          height: 22%;
+          background: white;
+          transform-origin: left;
+          transform: skewY(-8deg);
+          border-style: none;
         }
-
+      
+        /* Text Heading with paper fold animation.*/
+      
+        #heading {
+          position: absolute;
+          text-align: center;
+          top: 35%;
+          left: 50%;
+          font-size: 5em;
+          z-index: 1;
+          text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.4);
+          transform: translate3d(-50%, -50%, 0);
+          display: flex;
+          justify-content: center;
+          transition: transform .3s ease-in-out;
+        }
+      
+        #heading span {
+          display: block;
+          color: #ccc;
+          background-color: #fff;
+          border: 0.1px solid #ccc;
+          width: 90px;
+          height: 100px;
+        }
+      
+        #heading span:nth-child(odd) {
+          transform: skewY(-15deg);
+        }
+      
+        #heading span:nth-child(even) {
+          transform: skewY(15deg);
+        }
+      
+        #heading:hover span {
+          transform: skewY(0deg);
+        }
+      
+        /* Header's Content  */
+      
+        #headerContent {
+          position: absolute;
+          width: 100%;
+          color: #fff;
+          text-align: center;
+          top: 60%;
+          left: 50%;
+          font-weight: normal;
+          font-size: 2em;
+          text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+          transform: translate3d(-50%, -50%, 0);
+        }
+      
+        /* Responsive Design for whole header */
+      
+        @media only screen and (max-width:750px) {
+          #heading {
+            font-size: 4rem;
+          }
+      
+          #heading span {
+            width: 70px;
+            height: 80px;
+          }
+        }
+      
+        @media only screen and (max-width:600px) {
+          #heading {
+            font-size: 3rem;
+          }
+      
+          #heading span {
+            width: 50px;
+            height: 60px;
+          }
+      
+          #headerContent {
+            font-size: 1.45rem;
+          }
+        }
+      
+        @media only screen and (max-width:400px) {
+          #heading {
+            font-size: 2.2rem;
+          }
+      
+          #heading span {
+            width: 35px;
+            height: 45px;
+          }
+      
+          #headerContent {
+            top: 35%;
+            font-size: 1.1rem;
+          }
+        }
+      
+      
+      
+      
         @font-face {
-            font-family: 'adequate';
-            src: url('adequate/Adequate-ExtraLight.ttf');
+          font-family: 'adequate';
+          src: url('adequate/Adequate-ExtraLight.ttf');
         }
-        @font-face{
-            font-family:'hattori';
-            src:url('hattori-hanzo/hattori.otf');
-            }
-
+      
+        @font-face {
+          font-family: 'hattori';
+          src: url('hattori-hanzo/hattori.otf');
+        }
+      
         .heading {
-            color: white;
-            font-family: 'adequate';
-            font-size: 12vw;
-            margin: 170px auto;
+          color: black;
+          font-family: adequate;
+          font-size: 12vw;
+          margin: 170px auto;
+        }
+    
+      
+        
+        .navbar {
+          background-color: rgba(0, 0, 0, 0.4);
+          margin-left: 15px;
+          margin-right: 15px;
+        }
+      
+        .navbar-collapse ul {
+          margin: 0 auto;
+        }
+      
+        .navbar-collapse ul li a {
+          font-family: adequate;
+          font-size: 1.3rem;
+          font-variant: small-caps;
+          font-weight: bolder;
+          padding: 25px;
+          transition: 0.5s ease-in-out;
+        }
+      
+        .navbar-collapse ul li a:hover {
+          background-color: #d2d1d485;
+        }
+      
+        .navbar-collapse a {
+          margin-left: 10px;
+          margin-right: 10px;
+          color: white;
+        }
+      
+        @media only screen and (max-width:920px) and (min-width:766px) {
+          .navbar-collapse ul li a {
+            font-size: 1rem;
+          }
         }
     </style>
 
-    <style type="text/css">
-        body,
-        h5 {
-            margin: 0;
-            padding: 0;
-            font-family: 'adequate';
-            background-color: bisque;
-        }
-
-        .text-container h5 {
-            font-size: 80px;
-            color: rgba(225, 225, 225, .1);
-       
-            background-repeat: repeat-x;
-            -webkit-background-clip: text;
-            animation: animate 15s linear infinite;
-        }
-
-        @keyframes animate {
-            10% {
-                background-position: left 0px top 10px;
-            }
-
-            50% {
-                background-position: left 0px top 10px;
-            }
-
-        }
-
-        .text-container {
-            margin-top: 17px;
-            text-align: center;
-        }
-    </style>
+    
+        
+  
 
 
 
@@ -125,59 +230,30 @@
         <div class="collapse navbar-collapse" id="Sticky-nav">
             <ul class="navbar-nav">
                <li class="nav-item">
-          <a class="nav-link" href="homes/home">Home</a>
+          <a class="nav-link" href="/">Home</a>
         </li>
         
         
         <li class="nav-item">
-          <a class="nav-link" href="">Courses</a>
+          <a class="nav-link" href="/course">Courses</a>
         </li>
        
         <li class="nav-item">
-          <a class="nav-link" href="">Study Resources</a>
+          <a class="nav-link" href="/study">Study Resources</a>
         </li>
 
         <li class="nav-item">
-          <a class="nav-link" href="">Find Us</a>
+          <a class="nav-link" href="/contact">Find Us</a>
         </li>
 
         <li  class="nav-item ">
-          <a  class="nav-link" href="logout">Logout</a>
+          <a  class="nav-link" href="/logout">Logout</a>
         </li>
             </ul>
         </div>
         <div id="myDiv"></div>
     </nav>
-    <style>
-        .navbar {
-            background-color: rgba(0, 0, 0, 0.4);
-            margin-left: 15px;
-            margin-right: 15px;
-        }
-
-        .navbar-collapse ul {
-            margin: 0 auto;
-        }
-
-        .navbar-collapse ul li a {
-            font-family: adequate;
-            font-size: 1.5rem;
-            font-variant: small-caps;
-            font-weight: bolder;
-            padding: 25px;
-            transition: 0.5s ease-in-out;
-        }
-
-        .navbar-collapse ul li a:hover {
-            background-color: #d2d1d485;
-        }
-
-        .navbar-collapse a {
-            margin-left: 10px;
-            margin-right: 10px;
-            color: white;
-        }
-    </style>
+ 
 
     <header>
         <div id="headingBg" style="height: 70vh" !important>
@@ -197,139 +273,7 @@
     </header>
 
     <!--Styling for Header-->
-    <style>
-        #headingBg {
-            position: relative;
-            overflow: hidden;
-            background-image: linear-gradient(135deg, rgba(52, 152, 219, 0.7) 0%, rgba(243, 65, 65, 0.7) 100%), url("https://multithumbs.in/wp-content/uploads/2020/01/about-bg-img.jpg");
-            background-repeat: no-repeat;
-            background-position: center center;
-            background-attachment: fixed;
-            background-size: cover;
-        }
-
-        #headingBg:before {
-            content: '';
-            position: absolute;
-            top: 100%;
-            left: -50%;
-            width: 100%;
-            height: 22%;
-            background: #d5dede;
-            transform-origin: right;
-            transform: skewY(8deg);
-            border-style: none;
-        }
-
-        #headingBg:after {
-            content: '';
-            position: absolute;
-            top: 100%;
-            right: -50%;
-            width: 100%;
-            height: 22%;
-            background: #d5dede;
-            transform-origin: left;
-            transform: skewY(-8deg);
-            border-style: none;
-        }
-
-        /* Text Heading with paper fold animation.*/
-
-        #heading {
-            position: absolute;
-            text-align: center;
-            top: 35%;
-            left: 50%;
-            font-size: 5em;
-            text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.4);
-            transform: translate3d(-50%, -50%, 0);
-            display: flex;
-            justify-content: center;
-            transition: transform .3s ease-in-out;
-        }
-
-        #heading span {
-            display: block;
-            color: #ccc;
-            background-color: #fff;
-            border: 0.1px solid #ccc;
-            width: 90px;
-            height: 100px;
-        }
-
-        #heading span:nth-child(odd) {
-            transform: skewY(-15deg);
-        }
-
-        #heading span:nth-child(even) {
-            transform: skewY(15deg);
-        }
-
-        #heading:hover span {
-            transform: skewY(0deg);
-        }
-
-        /* Header's Content  */
-
-        #headerContent {
-            position: absolute;
-            width: 100%;
-            color: #fff;
-            text-align: center;
-            top: 60%;
-            left: 50%;
-            font-weight: normal;
-            font-size: 2em;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
-            transform: translate3d(-50%, -50%, 0);
-        }
-
-        /* Responsive Design for whole header */
-
-        @media only screen and (max-width:750px) {
-            #heading {
-                font-size: 4rem;
-            }
-
-            #heading span {
-                width: 70px;
-                height: 80px;
-            }
-        }
-
-        @media only screen and (max-width:600px) {
-            #heading {
-                font-size: 3rem;
-            }
-
-            #heading span {
-                width: 50px;
-                height: 60px;
-            }
-
-            #headerContent {
-                font-size: 1.45rem;
-            }
-        }
-
-        @media only screen and (max-width:400px) {
-            #heading {
-                font-size: 2.2rem;
-            }
-
-            #heading span {
-                width: 35px;
-                height: 45px;
-            }
-
-            #headerContent {
-                top: 35%;
-                font-size: 1.1rem;
-            }
-        }
-    </style>
-
+    
 
     <!--JS Script For Header-->
 
@@ -421,9 +365,7 @@
 
 
 
-    <div class="text-container">
-        <h5>COURSES</h5>
-    </div>
+    
     <h1 style=color:black align="center"> Python</h1>
     <style>
 
@@ -738,13 +680,14 @@
                 <input type="text" id="mySearch" onkeyup="myFunction()" placeholder="Search.."
                     title="Type in a category">
                 <ul id="myMenu">
-                    <li><a href="home.html">Home</a></li>
-                    <li><a href="about.html">About us</a></li>
-                    <li><a href="services.html">Services</a></li>
-                    <li><a href="course.html">Courses</a></li>
-                    <li><a href="blog.html">Blog</a></li>
-                    <li><a href="contact.html">Contact us</a></li>
-                    <li><a href="career.html">Career</a></li>
+                    <li><a href="/">Home</a></li>
+          
+         
+                    <li><a href="/course">Courses</a></li>
+                    
+                    <li><a href="/study">Study Resources</a></li>
+                    <li><a href="/contact">Find Us</a></li>
+                    <li><a href="/logout">Logout</a></li>
                 </ul>
             </div>
             

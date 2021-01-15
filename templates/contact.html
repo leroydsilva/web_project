@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Contact Us</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://www.w3schools.com/lib/w3.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="floating-wpp.min.css">
+   
+</head>
+<style type="text/css">
+    @font-face {
+    font-family: 'adequate';
+    src: url('adequate/Adequate-ExtraLight.ttf');
+}
+
+@font-face {
+    font-family: 'hattori';
+    src: url('hattori-hanzo/hattori.otf');
+}
+
+h1 {
+    font-family: 'Adequate';
+    font-weight: 900;
+}
+
+label>h1, h3, h2, p, button {
+    font-family: 'hattori';
+}
+
+footer input, a, button, label, li {
+    font-family: 'hattori';
+}
+
+footer h3 {
+    font-family: 'Adequate';
+    font-size: 1.5rem;
+}
+
+/* template */
+
+.container {
+    position: relative;
+    margin: 0 auto;
+}
+
+.container-fluid img {
+    vertical-align: middle;
+}
+
+.container-fluid .content {
+    position: absolute;
+    bottom: 0;
+    background: rgb(0, 0, 0);
+    /* Fallback color */
+    background: rgba(0, 0, 0, 0.5);
+    /* Black background with 0.5 opacity */
+    color: #f1f1f1;
+    width: 100%;
+    padding: 20px;
+}
+
+body {
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+}
+
+.a1 {
+    padding-left: 50%;
+}
+
+.b1 {
+    background-color: white;
+    float: right;
+}
+
+.container, .container-fluid {
+    margin: 0;
+    padding: 0;
+}
+
+#particles-js {
+    width: 100%;
+    height: 80vh;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    background-image: linear-gradient(135deg, rgba(52, 152, 219, 0.7) 0%, rgba(243, 65, 65, 0.7) 100%), url("https://multithumbs.in/wp-content/uploads/2020/01/about-bg-img.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    border-style: none;
+}
+
+#particles-js:before {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: -50%;
+    width: 100%;
+    height: 20%;
+    background: white;
+    transform-origin: right;
+    transform: skewY(8deg);
+    border-style: none;
+}
+
+#particles-js:after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    right: -50%;
+    width: 100%;
+    height: 20%;
+    background: white;
+    transform-origin: left;
+    transform: skewY(-8deg);
+    border-style: none;
+}
+
+#heading {
+    position: absolute;
+    text-align: center;
+    font-family: adequate;
+    top: 26%;
+    left: 50%;
+    font-size: 5em;
+    z-index: 1;
+    text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.4);
+    transform: translate3d(-50%, -50%, 0);
+    display: flex;
+    justify-content: center;
+    transition: transform .3s ease-in-out;
+}
+
+#headerContent {
+    width: 100%;
+    position: absolute;
+    text-align: center;
+    padding: 2rem;
+    top: 47%;
+    left: 50%;
+    color: #f5f5f5;
+    z-index: 1;
+    text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.4);
+    transform: translate3d(-50%, -50%, 0);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    transition: transform .3s ease-in-out;
+}
+
+#headerContent h2 {
+    font-size: 2.5rem;
+    font-family:adequate;
+}
+
+#headerContent p {
+    font-size: 1.5rem;
+    font-family:hattori;
+}
+
+#heading span {
+    display: block;
+    color: #ccc;
+    background-color: #fff;
+    border: 0.1px solid #ccc;
+    width: 90px;
+    height: 100px;
+}
+
+#heading span:nth-child(odd) {
+    transform: skewY(-15deg);
+}
+
+#heading span:nth-child(even) {
+    transform: skewY(15deg);
+}
+
+#heading:hover span {
+    transform: skewY(0deg);
+}
+
+@media only screen and (max-width:850px) {
+    #heading {
+        font-size: 4rem;
+    }
+    #heading span {
+        width: 70px;
+        height: 80px;
+    }
+    #headerContent h2 {
+        font-size: 2.2rem;
+    }
+    #headerContent p {
+        font-size: 1.3rem;
+    }
+}
+
+@media only screen and (max-width:650px) {
+    #heading {
+        font-size: 3rem;
+    }
+    #heading span {
+        width: 50px;
+        height: 60px;
+    }
+    #headerContent {
+        top: 44%;
+        padding: 1rem;
+    }
+    #headerContent h2 {
+        font-size: 1.8rem;
+    }
+    #headerContent p {
+        font-size: 1.2rem;
+    }
+}
+
+@media only screen and (max-width:500px) {
+    #heading {
+        font-size: 2.2rem;
+    }
+    #heading span {
+        width: 35px;
+        height: 45px;
+    }
+    #headerContent h2 {
+        font-size: 1.4rem;
+    }
+    #headerContent p {
+        font-size: 1.1rem;
+    }
+}
+
+@media only screen and (max-width:350px) {
+    #heading {
+        font-size: 2rem;
+    }
+    #heading span {
+        width: 30px;
+        height: 40px;
+    }
+    #headerContent {
+        top: 45%;
+        padding: 0;
+    }
+    #headerContent h2 {
+        font-size: 1.2rem;
+    }
+    #headerContent p {
+        font-size: 1rem;
+    }
+}
+.card{
+    font-family:adequate;
+}
+.navbar {
+    background-color: rgba(0, 0, 0, 0.4);
+    margin-left: 15px;
+    margin-right: 15px;
+}
+
+.navbar-collapse ul {
+    margin: 0 auto;
+}
+
+.navbar-collapse ul li a {
+    font-family: adequate;
+    font-size: 1.3rem;
+    font-variant: small-caps;
+    font-weight: bolder;
+    padding: 25px;
+    transition: 0.5s ease-in-out;
+}
+
+.navbar-collapse ul li a:hover {
+    background-color: #d2d1d485;
+}
+
+.navbar-collapse a {
+    margin-left: 10px;
+    margin-right: 10px;
+    color: white;
+}
+
+@media only screen and (max-width: 920px) and (min-width: 766px) {
+    .navbar-collapse ul li a {
+        font-size: 1rem;
+    }
+}
+
+.x1 {
+    font-size: 20px;
+    color: blue;
+}
+
+#tab1 {
+    margin-top: 2px;
+    color: black;
+}
+
+/*--form--*/
+
+#features {
+    text-align: center;
+    margin: 0px 0px 20px;
+}
+
+.x3 {
+    font-size: 18px;
+    color: black;
+    line-height: 24px;
+    text-align: left;
+}
+
+.x4 {
+    color: black;
+    font-size: 18px;
+}
+
+.x5 {
+    color: #02075d;
+    text-transform: uppercase;
+}
+
+.w3-container {
+    background-color: #f5f5f5;
+}
+
+/* Footer Section */
+
+footer {
+    background-color: #D3D3D3;
+    color: black;
+    font-size: 18px;
+    padding-top: 2rem;
+}
+
+/*----search box---*/
+
+/* Create a column layout with Flexbox */
+
+.row {
+    display: flex;
+    margin: 0;
+}
+
+/* Left column (menu) */
+
+.left {
+    width: 18%;
+    padding: 15px 0;
+    margin: 10px;
+    float: left;
+}
+
+/* Right column (page content) */
+
+.right {
+    width: 78%;
+    padding: 15px;
+}
+
+/* Style the search box */
+
+#mySearch {
+    width: 90%;
+    font-size: 20px;
+    padding: 11px;
+    border: 1px solid #ddd;
+    margin-left: 10px;
+}
+
+/* Style the navigation menu inside the left column */
+
+#myMenu {
+    list-style-type: none;
+    padding: 0;
+    margin-left: 10px;
+}
+
+#myMenu li a {
+    padding: 12px;
+    text-decoration: none;
+    font-size: 15px;
+    color: black;
+    display: block;
+    margin-left: 7px;
+}
+
+#myMenu li a:hover {
+    background-color: #D3D3D3;
+}
+
+.x6 {
+    list-style: none;
+    padding-left: 0;
+}
+
+.x6 li, .x6 a {
+    color: black;
+    font-size: 17px;
+    text-decoration: none;
+}
+
+.x6 a:hover {
+    color: white;
+}
+
+.x7 h3, .x7 img {
+    color: black;
+    padding-left: 50px;
+}
+
+#div1 {
+    font-size: 48px;
+}
+
+.changeWidth {
+    width: 35%;
+}
+
+
+</style>
+<script>
+        function myFunction() {
+            var input, filter, ul, li, a, i;
+            input = document.getElementById("mySearch");
+            filter = input.value.toUpperCase();
+            ul = document.getElementById("myMenu");
+            li = ul.getElementsByTagName("li");
+            for (i = 0; i < li.length; i++) {
+                a = li[i].getElementsByTagName("a")[0];
+                if (a.innerHTML.toUpperCase().indexOf(filter) > -1) {
+                    li[i].style.display = "";
+                } else {
+                    li[i].style.display = "none";
+                }
+            }
+        }
+        
+        
+
+    </script>
+<body>
+    <div class='main container-fluid'>
+        <h1 class='animateHeading' id='heading'>
+            <span>C</span>
+            <span>O</span>
+            <span>N</span>
+            <span>T</span>
+            <span>A</span>
+            <span>C</span>
+            <span>T</span>
+            <span>U</span>
+            <span>S</span>
+        </h1>
+        <div id="headerContent">
+            <h2>Contact Us For Best Coaching Services</h2>
+            
+        </div>
+        <nav class="navbar fixed-top navbar-expand-md  scrolling-navbar">
+            <!-- Toggler/collapsibe Button -->
+            <button class="navbar-toggler navbar-dark" type="button" data-toggle="collapse" data-target="#Sticky-nav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <!-- Navbar links -->
+            <div class="collapse navbar-collapse" id="Sticky-nav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/">Home</a>
+                      </li>
+                      
+                      
+                      <li class="nav-item">
+                        <a class="nav-link" href="/course">Courses</a>
+                      </li>
+                     
+                      <li class="nav-item">
+                        <a class="nav-link" href="/study">Study Resources</a>
+                      </li>
+              
+                      <li class="nav-item">
+                        <a class="nav-link" href="/contact">Find Us</a>
+                      </li>
+              
+                      <li  class="nav-item ">
+                        <a  class="nav-link" href="/logout">Logout</a>
+                      </li>
+                </ul>
+            </div>
+        </nav>
+        <div id='particles-js'></div>
+    </div>
+
+    <div class="card">
+        <div class="row" id="moreInfo">
+            <div class="col">
+                <div>
+                    <ul class="nav nav-tabs">
+                        <li class="nav-item">
+                            <a style='font-family:adequate; font-weight:bold' class="nav-link active" href="#tab1" data-toggle="tab">REACH US</a>
+                        </li>
+                    </ul>
+                    <div class="tab-content py-3">
+                        <h4 class="x1" style='font-weight:bold'><i class="fa fa-map-marker"></i> OUR LOCATIONS</h4><br>
+                        <div class="embed-responsive embed-responsive-16by9">
+                            
+                                <iframe class="embed-responsive-item" src="https://www.google.com/maps/d/u/0/embed?mid=1Qigko7uD-ff91Z45MnofrAyGuVe5cK4E" width="640" height="480" frameborder="0" style="border:0" allowfullscreen>></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="border col p-0">
+                <div class="panel" id="features">
+                    <div class="panel-heading w3-container">
+                        <h1 class="panel-title x1" style="font-size: 1.5rem;">  CONTACT US FOR MORE DETAILS</h1>
+                        <hr>
+                    </div>
+                    <p class="x3 m-2"><br>
+                    <h3 style="font-size: 25px;font-family:hattori;">The Best Coaching Center Right at Your Service.</h3>
+                    </p><br><br>
+                    <h4 class="x1" style='font-weight:bold'>E-MAIL:</h4>
+                    <p class="x4"><a href="" target="_blank">connect@coaching.in</a></p>
+                    <br>
+                    <h4 class="x1" style='font-weight:bold'>CONTACT NO:</h4>
+                    <p class="x4"><a href="tel:8800100021">+91 8050747800</a></p>
+                    <br>
+                   
+                   </div> 
+        </div>
+    </div>
+
+    <!-- Contact Section -->
+    <div class="container-fluid" style="padding: 128px 16px,">
+        <h3 style="font-size: 50px; font-weight: 700; font-family:adequate" class="text-center">CONTACT US</h3>
+        <p class="text-center" style="font-size: 25px; font-family:hattori"><b>Lets get in touch. Send us a message:</b></p>
+        <div class="d-flex flex-wrap flex-fill justify-content-between" style="margin-top:48px">
+            <p style="margin: 2.5rem 5rem; font-family:hattori"><i class="fa fa-phone fa-fw" style="font-size: 30px; "></i> Phone: <a href="tel:8800100021" style='color:black; text-decoration:none'>+91 8050747800</a></p>
+            <p style="margin: 2.5rem 5rem; font-family:hattori"><i class="fa fa-map-marker fa-fw" style="font-size: 30px;"></i> Milagres  Hampankatta, Mangalore</p>
+            <p style="margin: 2.5rem 5rem; font-family:hattori"><i class="fa fa-envelope fa-fw" style="font-size: 30px;"> </i> Email ID : <a href='mailto:connect@multithumbs.in' style='color:black; text-decoration:none'>connect@coaching.in</a></p>
+            <br>
+        </div>
+    </div>
+
+    <footer>
+    <div class="row">
+      <div class="left container" style="background-color:#bbb;">
+        <input type="text" id="mySearch" onkeyup="myFunction()" placeholder="Search.." title="Type in a category">
+        <ul id="myMenu">
+            <li><a href="/">Home</a></li>
+          
+         
+            <li><a href="/course">Courses</a></li>
+            
+            <li><a href="/study">Study Resources</a></li>
+            <li><a href="/contact">Find Us</a></li>
+            <li><a href="/logout">Logout</a></li>
+        </ul>
+      </div>
+      <div class="border col p-0">
+                <div class="panel" id="features">
+                    <div class="panel-heading w3-container">
+                        <h1 class="panel-title x1" style="font-size: 1.5rem;">Contact Us </h1>
+                        <hr>
+                    </div>
+                    <p class="x3 m-2"><br>
+                    <h3 style="font-size: 25px;font-family:hattori;">.</h3>
+                    </p><br><br>
+                    <h4 class="x1" style='font-weight:bold'>E-MAIL:</h4>
+                    <p class="x4"><a href="mailto:Email%3Aconnect@multithumbs.in" target="_blank">connect@coaching.in</a></p>
+                    <br>
+                    <h4 class="x1" style='font-weight:bold'>CONTACT NO:</h4>
+                    <p class="x4"><a href="tel:8800100021">+91 8050747800</a></p>
+                    <br>
+                    
+                    
+</footer>
+    
+</body>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+    integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+    crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+    integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+    crossorigin="anonymous"></script>
+<script src="js/contactUs.js"></script>
+<script src='js/particles.js'></script>
+<script src='js/app.js'></script>
+<script type="text/javascript" src="jquery-3.3.1.min.js"></script>
+<script type="text/javascript" src="floating-wpp.min.js"></script>
+
+
+</html>

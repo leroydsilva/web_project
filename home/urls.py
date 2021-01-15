@@ -6,10 +6,11 @@ urlpatterns = [
     path('',views.home,name='home'),
     path('login/',views.postLogin,name='postLogin'),
     path('logout/',views.logout,name='logout'),
-    path('register',views.register,name='register'),
-    path('Signup',views.Signup,name='register'),
-    path('career',views.career ,name='career'),
-    path('homes',views.study ,name='study')
+    path('register/',views.register,name='register'),
+    
+    path('course/',views.course ,name='course'),
+    path('study/',views.study ,name='study'),
+    path('contact/',views.contact ,name='contact')
 
 
     

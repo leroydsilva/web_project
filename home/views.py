@@ -2,6 +2,8 @@ from django.shortcuts import render,redirect,HttpResponse
 import pyrebase
 from django.contrib import auth
 from django.contrib import  messages
+import firebase_admin
+from firebase_admin import credentials,firestore
 # from template.forms import CreateUserForm, UserCreationForm
 
 # Create your views here.
@@ -19,6 +21,9 @@ firebase = pyrebase.initialize_app(firebaseConfig)
 authe=firebase.auth()
 database=firebase.database()
 storage = firebase.storage()
+cred=credentials.Certificate("static/fir-e40d9-firebase-adminsdk-qqywy-907f53f70d.json")
+firebase_admin.initialize_app(cred)
+firebase_db=firestore.client()
 
 def home(request):
     return render(request,'home.html')
@@ -85,13 +90,29 @@ def study(request):
     # print(a)
     a=a['localId']
     url_list=[]
+    url_list1=[]
     for i in range(1,5):
         url=storage.child("Java/{}.pdf".format(i)).get_url(a)
         url_list.append(url)
-    print(url_list) 
+    for i in range(1,6):
+        url=storage.child("python/{}.pdf".format(i)).get_url(a)
+        url_list1.append(url)    
+    # print(url_list)
+    snapshots=list(firebase_db.collection(u'python').get())
+    l=[]
+    for s in snapshots:
+        l.append(s.to_dict())
+    # print(l) 
+    pnames=[]
+    for a in l:
+        pnames.append(a.get('name'))   
+    # print(pnames)   
+    # print(l)    
+    # for key,val in dic:
+    #     dic
     
           
-    return render(request,'blog.html',{'u':url_list})
+    return render(request,'blog.html',{'u':url_list,'p_list':url_list1,'v':pnames})
 
 def course(request):
     return render(request,'course.html')    
